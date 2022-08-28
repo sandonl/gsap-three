@@ -1,19 +1,33 @@
-*
-{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-family: "Lora", serif;
+  font-family: "Playfair Display", serif;
 }
 
 html,
-body
-{
-    overflow: hidden;
+body {
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
-.webgl
-{
-    position: fixed;
-    top: 0;
-    left: 0;
-    outline: none;
+.webgl {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  outline: none;
+}
+
+/* Content */
+.content {
+  color: white;
+  font-size: 6em;
+  padding: 3vw;
+  position: absolute;
+  z-index: 99;
 }

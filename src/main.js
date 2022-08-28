@@ -7,7 +7,7 @@ import * as dat from "lil-gui";
  * Base
  */
 // Debug
-const gui = new dat.GUI({ width: 340 });
+// const gui = new dat.GUI({ width: 340 });
 
 // Canvas
 const canvas = document.querySelector("canvas.webgl");
@@ -22,7 +22,7 @@ const scene = new THREE.Scene();
 const waterGeometry = new THREE.PlaneGeometry(2, 2, 128, 128);
 
 // Material
-const waterMaterial = new THREE.MeshBasicMaterial();
+const waterMaterial = new THREE.MeshBasicMaterial({ color: "#ff0000" });
 
 // Mesh
 const water = new THREE.Mesh(waterGeometry, waterMaterial);
@@ -32,15 +32,17 @@ scene.add(water);
 /**
  * Sizes
  */
+const content = document.getElementsByClassName("content");
+
 const sizes = {
   width: window.innerWidth,
-  height: window.innerHeight,
+  height: content[0].offsetHeight,
 };
 
 window.addEventListener("resize", () => {
   // Update sizes
   sizes.width = window.innerWidth;
-  sizes.height = window.innerHeight;
+  sizes.height = content[0].offsetHeight;
 
   // Update camera
   camera.aspect = sizes.width / sizes.height;
@@ -56,7 +58,7 @@ window.addEventListener("resize", () => {
  */
 // Base camera
 const camera = new THREE.PerspectiveCamera(
-  75,
+  120,
   sizes.width / sizes.height,
   0.1,
   100
