@@ -149,6 +149,11 @@ section {
   margin-left: 30%;
 }
 
+.section-five a:hover {
+  background: rgb(50, 50, 50);
+  transition: 0.5s ease-in-out;
+}
+
 footer {
   color: white;
   position: absolute;
