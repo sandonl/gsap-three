@@ -5,6 +5,7 @@ import * as THREE from "three";
 // Import Model
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
+import modelURL from "/models/model.gltf?url";
 
 // GSAP
 import { gsap } from "gsap";
@@ -27,12 +28,12 @@ const scene = new THREE.Scene();
 
 // Loader
 const dracoLoader = new DRACOLoader();
-dracoLoader.setDecoderPath("/draco/");
+dracoLoader.setDecoderPath("/draco/gltf/");
 const gltfLoader = new GLTFLoader();
 
 let model = null;
 gltfLoader.setDRACOLoader(dracoLoader);
-gltfLoader.load("models/model.gltf", (gltf) => {
+gltfLoader.load(modelURL, (gltf) => {
   model = gltf.scene;
   scene.add(model);
 });
