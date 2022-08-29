@@ -1,22 +1,16 @@
-# Three.js Boilerplate
+# Headphones Showcase
 
-A barebones boilerplate used to spin up simple Three.js experiences.
-Inspired by [Three.js journey](https://threejs-journey.com/)
+An demo/ proof of concept of utilising GSAP's ScrollTrigger to animate camera rotations with Three.js
 
-To run Install dependencies (only the first time):
+Technologies used:
 
-```
-npm install
-```
+- Three.js
+- GSAP
+- Vite
 
-Run the local server
+View a [live](https://headphones-gsap-three.vercel.app/) demo.
 
-```
-npm run dev
-```
+Model from: [pmndrs market](https://market.pmnd.rs/model/headphones)
 
-Build for production in the dist/ directory:
-
-```
-npm run build
-```
+We can also go further to animate the headphones and sync these with the scroll triggers.
+Also potential to include a smoother scroll to allow animations to transform better.

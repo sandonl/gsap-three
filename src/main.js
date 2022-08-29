@@ -109,13 +109,34 @@ const camera = new THREE.PerspectiveCamera(
 camera.position.set(1, 1, 1);
 scene.add(camera);
 
-// Lights
+/**
+ * Lights
+ */
 const ambientLight = new THREE.AmbientLight(0xffffff, 3);
 scene.add(ambientLight);
 
 const pointLight = new THREE.PointLight(0xffffff, 3);
-pointLight.position.set(0, 4, 0);
+pointLight.position.set(-1.5, 3.5, 2.5);
 scene.add(pointLight);
+
+// gui
+//   .add(pointLight.position, "x")
+//   .min(-10)
+//   .max(10)
+//   .step(0.5)
+//   .name("pointLightPosX");
+// gui
+//   .add(pointLight.position, "y")
+//   .min(-10)
+//   .max(10)
+//   .step(0.5)
+//   .name("pointLightPosY");
+// gui
+//   .add(pointLight.position, "z")
+//   .min(-10)
+//   .max(10)
+//   .step(0.5)
+//   .name("pointLightPosZ");
 
 /**
  * Renderer
@@ -167,7 +188,7 @@ car_anim.to(camera.position, {
   },
 });
 
-// // Slide 4
+// Slide 4
 car_anim.to(camera.position, {
   z: -5,
   y: 3.1,
