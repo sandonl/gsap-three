@@ -97,6 +97,14 @@ updateTextShadow();
 // Gsap
 gsap.registerPlugin(ScrollTrigger);
 
+// Initial header animation
+gsap.from("header", {
+  y: 16,
+  opacity: 0,
+  duration: 0.8,
+  ease: "power3.inOut",
+});
+
 // Initial hero animation
 gsap.from(".hero", { duration: 1.0, x: "100%", ease: "Back.easeOut" });
 
@@ -374,12 +382,11 @@ gsap.to(".section-five", {
     start: "top bottom",
     end: "end end",
   },
-  backgroundColor: "#9cb898",
+  backgroundColor: "#ebb0c6",
   ease: "none",
 });
 
 gsap.from(".cta-button", {
-  // duration: 3,
   x: "200%",
   ease: "Back.easeOut.config(1.7)",
   scrollTrigger: ".section-five",
