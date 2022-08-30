@@ -236,7 +236,9 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setSize(sizes.width, sizes.height);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-// GSAP
+/**
+ * All GSAP Animations
+ */
 scene.rotation.set(0, 1.88, 0);
 camera.position.set(2, 1.4, 5);
 const origin = new THREE.Vector3(0, 1.4, 0);
@@ -260,6 +262,51 @@ head_anim.to(camera.position, {
   },
 });
 
+// Animate incoming section 2
+gsap.to(".section-two", {
+  scrollTrigger: {
+    trigger: ".section-two",
+    start: "top bottom",
+    end: "end end",
+  },
+  backgroundColor: "#f14666",
+  ease: "none",
+});
+
+gsap.from(".text-wrap-two", {
+  duration: 1.3,
+  x: "-100%",
+  ease: "slow",
+  scrollTrigger: {
+    trigger: ".section-two",
+    start: "top bottom",
+    end: "end end",
+  },
+});
+
+// Animate incoming section 3
+// #ec958e
+gsap.to(".section-three", {
+  scrollTrigger: {
+    trigger: ".section-three",
+    start: "top bottom",
+    end: "end end",
+  },
+  backgroundColor: "#ec958e",
+  ease: "none",
+});
+
+gsap.from(".text-wrap-three", {
+  duration: 1.3,
+  x: "100%",
+  ease: "slow",
+  scrollTrigger: {
+    trigger: ".section-three",
+    start: "top bottom",
+    end: "end end",
+  },
+});
+
 // Slide 3
 head_anim.to(camera.position, {
   x: 3,
@@ -272,6 +319,29 @@ head_anim.to(camera.position, {
     onUpdate: () => {
       camera.lookAt(origin);
     },
+  },
+});
+
+// Animate incoming section 4
+// #ffcdaa
+gsap.to(".section-four", {
+  scrollTrigger: {
+    trigger: ".section-four",
+    start: "top bottom",
+    end: "end end",
+  },
+  backgroundColor: "#ffcdaa",
+  ease: "none",
+});
+
+gsap.from(".text-wrap-four", {
+  duration: 1.3,
+  y: "100%",
+  ease: "slow",
+  scrollTrigger: {
+    trigger: ".section-four",
+    start: "top bottom",
+    end: "end end",
   },
 });
 
@@ -298,6 +368,18 @@ head_anim.to(camera.position, {
     start: "top top",
     end: "bottom top",
   },
+});
+
+// Animate incoming section 5
+// #9cb898
+gsap.to(".section-five", {
+  scrollTrigger: {
+    trigger: ".section-five",
+    start: "top bottom",
+    end: "end end",
+  },
+  backgroundColor: "#9cb898",
+  ease: "none",
 });
 
 gsap.from(".cta-button", {

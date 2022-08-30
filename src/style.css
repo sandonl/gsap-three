@@ -101,7 +101,7 @@ section {
 }
 
 .section-two {
-  background-color: #f14666;
+  background-color: #5193b3;
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
@@ -110,12 +110,16 @@ section {
   overflow: hidden;
 }
 
-.section-two .text-wrap {
+/* .section-two .text-wrap {
+  width: 50%;
+} */
+
+.text-wrap-two {
   width: 50%;
 }
 
 .section-three {
-  background-color: #ec958e;
+  background-color: #f14666;
   color: #f0aea8;
   overflow: hidden;
   display: flex;
@@ -123,13 +127,17 @@ section {
   font-size: 2vw;
 }
 
-.section-three .text-wrap {
+/* .section-three .text-wrap {
+
+} */
+
+.text-wrap-three {
   transform: rotate(45deg);
   width: 33%;
 }
 
 .section-four {
-  background-color: #ffcdaa;
+  background-color: #ec958e;
   text-align: center;
   overflow: hidden;
 }
@@ -140,7 +148,7 @@ section {
 }
 
 .section-five {
-  background-color: #9cb898;
+  background-color: #ffcdaa;
   display: flex;
   justify-content: center;
   align-items: center;
