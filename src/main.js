@@ -13,7 +13,6 @@ import { ScrollTrigger } from "gsap/all";
 
 // Rainbow Coloured Text
 // Designed by Julian Parker https://codepen.io/hooliop/pen/QWOjJPw
-// const RAINBOW_COLORS = ["#391b13", "#72456e", "#aa2526", "#e13d34", "#d3592a"];
 const RAINBOW_COLORS = ["#a32d42", "#f14666", "#ec958e", "#f5a46b", "#ffcdaa"];
 const RAINBOW_CHUNK_LENGTH = 6;
 const SHADOW_LENGTH = RAINBOW_CHUNK_LENGTH * RAINBOW_COLORS.length;
@@ -251,7 +250,7 @@ ScrollTrigger.defaults({
   scrub: true,
 });
 
-// Slide 2
+// Animate slide 2 model
 head_anim.to(camera.position, {
   x: 0,
   scrollTrigger: {
@@ -285,7 +284,6 @@ gsap.from(".text-wrap-two", {
 });
 
 // Animate incoming section 3
-// #ec958e
 gsap.to(".section-three", {
   scrollTrigger: {
     trigger: ".section-three",
@@ -307,7 +305,7 @@ gsap.from(".text-wrap-three", {
   },
 });
 
-// Slide 3
+// Animate slide 3 model
 head_anim.to(camera.position, {
   x: 3,
   z: 4,
@@ -323,7 +321,6 @@ head_anim.to(camera.position, {
 });
 
 // Animate incoming section 4
-// #ffcdaa
 gsap.to(".section-four", {
   scrollTrigger: {
     trigger: ".section-four",
@@ -345,7 +342,7 @@ gsap.from(".text-wrap-four", {
   },
 });
 
-// Slide 4
+// Animate slide 4 model
 head_anim.to(camera.position, {
   z: -5,
   y: 3.1,
@@ -371,7 +368,6 @@ head_anim.to(camera.position, {
 });
 
 // Animate incoming section 5
-// #9cb898
 gsap.to(".section-five", {
   scrollTrigger: {
     trigger: ".section-five",
@@ -389,7 +385,6 @@ gsap.from(".cta-button", {
   scrollTrigger: ".section-five",
 });
 
-// gsap.from(".hero", { duration: 1.3, x: "100%", ease: "Back.easeOut" });
 /**
  * Animate
  */
@@ -400,13 +395,6 @@ const tick = () => {
 
   //   Animate particles
   particles.rotation.x = elapsedTime * 0.05;
-
-  // Update controls
-  // controls.update();
-
-  // if (model !== null) {
-  //   model.rotation.y += 0.01;
-  // }
 
   // Render
   renderer.render(scene, camera);
