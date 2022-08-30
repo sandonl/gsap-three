@@ -85,20 +85,26 @@ section {
 
 .section-one {
   background-color: #5193b3;
-  font-size: 4em;
+  font-size: 3rem;
   display: flex;
   align-items: center;
   justify-content: flex-end;
 }
 
+.hero {
+  width: 50%;
+}
+
 .section-one p {
   font-size: 0.4em;
+  padding: 24px;
   text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
 }
 
 .section-one h1 {
-  padding-right: 1em;
-  padding-bottom: 0.5em;
+  /* padding-right: 1em;
+  padding-bottom: 0.5em; */
+  padding: 24px;
   text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
 }
 
@@ -129,10 +135,6 @@ section {
   font-size: 2vw;
 }
 
-/* .section-three .text-wrap {
-
-} */
-
 .text-wrap-three {
   transform: rotate(45deg);
   width: 33%;
@@ -160,7 +162,7 @@ section {
   text-decoration: none;
   text-transform: capitalize;
   font-weight: 600;
-  font-size: 4em;
+  font-size: 4rem;
   color: #fff;
   background: black;
   padding: 12px 24px;
@@ -174,7 +176,7 @@ section {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  margin-left: 30%;
+  margin-left: 20%;
 }
 
 .section-five a:hover {
