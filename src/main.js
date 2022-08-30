@@ -11,8 +11,95 @@ import modelURL from "/models/model.gltf?url";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 
+// Rainbow Coloured Text
+// Designed by Julian Parker https://codepen.io/hooliop/pen/QWOjJPw
+// const RAINBOW_COLORS = ["#391b13", "#72456e", "#aa2526", "#e13d34", "#d3592a"];
+const RAINBOW_COLORS = ["#a32d42", "#f14666", "#ec958e", "#f5a46b", "#ffcdaa"];
+const RAINBOW_CHUNK_LENGTH = 6;
+const SHADOW_LENGTH = RAINBOW_CHUNK_LENGTH * RAINBOW_COLORS.length;
+
+const headingElement = document.querySelector("h1");
+let textShadow = "";
+
+const WINDOW_WIDTH = window.innerWidth;
+const WIDTH_MIDPOINT = WINDOW_WIDTH / 2;
+const WINDOW_HEIGHT = window.innerHeight;
+const HEIGHT_MIDPOINT = WINDOW_HEIGHT / 2;
+const MIDPOINT_BUFFER = 100;
+let polarity = {
+  x: "+",
+  y: "+",
+};
+let poleX, poleY;
+
+document.addEventListener("mousemove", (e) => {
+  if (
+    e.clientX > WIDTH_MIDPOINT - MIDPOINT_BUFFER &&
+    e.clientX < WIDTH_MIDPOINT + MIDPOINT_BUFFER
+  ) {
+    poleX = ".";
+  } else if (e.clientX < WIDTH_MIDPOINT) {
+    poleX = "-";
+  } else {
+    poleX = "+";
+  }
+
+  if (
+    e.clientY > HEIGHT_MIDPOINT - MIDPOINT_BUFFER &&
+    e.clientY < HEIGHT_MIDPOINT + MIDPOINT_BUFFER
+  ) {
+    poleY = ".";
+  } else if (e.clientY < HEIGHT_MIDPOINT) {
+    poleY = "-";
+  } else {
+    poleY = "+";
+  }
+
+  if (poleX !== polarity.x || poleY !== polarity.y) {
+    updatePolarity(poleX, poleY);
+    updateTextShadow();
+  }
+});
+
+const updatePolarity = (x, y) => {
+  polarity.x = x;
+  polarity.y = y;
+};
+
+const resetTextShadow = () => {
+  textShadow = "0 0 transparent";
+};
+
+const updateTextShadow = () => {
+  resetTextShadow();
+  for (let i = 1; i <= SHADOW_LENGTH; i++) {
+    let chunkColor = RAINBOW_COLORS[Math.floor((i - 1) / RAINBOW_CHUNK_LENGTH)];
+    let chunkPos = polarity.x === "." ? 0 : i;
+    textShadow += ` ,
+          ${polarity.x}${chunkPos}px
+          ${polarity.y}${i}px
+          1px
+          ${chunkColor}
+         `;
+    if (i % RAINBOW_CHUNK_LENGTH === 0 && i !== RAINBOW_CHUNK_LENGTH) {
+      textShadow += ` ,
+          ${polarity.x}${chunkPos}px
+          ${polarity.y}${i}px
+          1px
+          ${RAINBOW_COLORS[0]}
+         `;
+    }
+  }
+  headingElement.style.textShadow = textShadow;
+};
+
+updateTextShadow();
+
 // Gsap
 gsap.registerPlugin(ScrollTrigger);
+
+// Initial hero animation
+gsap.from(".hero", { duration: 1.0, x: "100%", ease: "Back.easeOut" });
 
 /**
  * Base
@@ -154,7 +241,7 @@ scene.rotation.set(0, 1.88, 0);
 camera.position.set(2, 1.4, 5);
 const origin = new THREE.Vector3(0, 1.4, 0);
 
-let car_anim = gsap.timeline();
+let head_anim = gsap.timeline();
 
 ScrollTrigger.defaults({
   immediateRender: false,
@@ -163,7 +250,7 @@ ScrollTrigger.defaults({
 });
 
 // Slide 2
-car_anim.to(camera.position, {
+head_anim.to(camera.position, {
   x: 0,
   scrollTrigger: {
     trigger: ".section-two",
@@ -174,7 +261,7 @@ car_anim.to(camera.position, {
 });
 
 // Slide 3
-car_anim.to(camera.position, {
+head_anim.to(camera.position, {
   x: 3,
   z: 4,
   scrollTrigger: {
@@ -189,7 +276,7 @@ car_anim.to(camera.position, {
 });
 
 // Slide 4
-car_anim.to(camera.position, {
+head_anim.to(camera.position, {
   z: -5,
   y: 3.1,
   scrollTrigger: {
@@ -203,7 +290,7 @@ car_anim.to(camera.position, {
   },
 });
 
-car_anim.to(camera.position, {
+head_anim.to(camera.position, {
   x: 1,
   scrollTrigger: {
     trigger: ".section-four",
@@ -213,6 +300,14 @@ car_anim.to(camera.position, {
   },
 });
 
+gsap.from(".cta-button", {
+  // duration: 3,
+  x: "200%",
+  ease: "Back.easeOut.config(1.7)",
+  scrollTrigger: ".section-five",
+});
+
+// gsap.from(".hero", { duration: 1.3, x: "100%", ease: "Back.easeOut" });
 /**
  * Animate
  */

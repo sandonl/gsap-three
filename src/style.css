@@ -4,7 +4,7 @@
 }
 
 :root {
-  font-family: "Manrope", sans-serif;
+  font-family: "Varela Round", sans-serif;
   color: white;
 }
 
@@ -57,8 +57,9 @@ header {
 .header-inner a {
   text-decoration: none;
   text-transform: capitalize;
-  font-weight: 600;
+  font-weight: 200;
   color: #fff;
+  text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
 }
 
 .header-inner .btn a {
@@ -88,8 +89,15 @@ section {
   justify-content: flex-end;
 }
 
+.section-one p {
+  font-size: 0.4em;
+  text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+}
+
 .section-one h1 {
   padding-right: 1em;
+  padding-bottom: 0.5em;
+  text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
 }
 
 .section-two {
@@ -98,7 +106,7 @@ section {
   justify-content: flex-start;
   flex-wrap: wrap;
   color: #a32d42;
-  font-size: 2em;
+  font-size: 1.5vw;
   overflow: hidden;
 }
 
@@ -112,21 +120,23 @@ section {
   overflow: hidden;
   display: flex;
   justify-content: flex-end;
+  font-size: 2vw;
 }
 
 .section-three .text-wrap {
   transform: rotate(45deg);
-  width: 50%;
+  width: 33%;
 }
 
 .section-four {
   background-color: #ffcdaa;
+  text-align: center;
   overflow: hidden;
 }
 
 .section-four h1 {
   color: #f5a46b;
-  font-size: 12em;
+  font-size: 13vw;
 }
 
 .section-five {
@@ -137,7 +147,6 @@ section {
 }
 
 .section-five a {
-  z-index: 99999;
   text-decoration: none;
   text-transform: capitalize;
   font-weight: 600;
@@ -146,6 +155,15 @@ section {
   background: black;
   padding: 12px 24px;
   border-radius: 10px;
+
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button {
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
   margin-left: 30%;
 }
 
